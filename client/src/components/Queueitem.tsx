@@ -6,14 +6,13 @@ type Props = {
 /* 
 Individual job playlists and their information    
 */
-const Listitem = ({listname }: Props) => {
+const Queueitem = ({listname }: Props) => {
   
     return(
         <li>
-            <img src="https://lineup-images.scdn.co/wrapped-2020-top100_LARGE-en.jpg"  />
             {listname}
         </li>
     )
 }
 
-export default Listitem
+export default Queueitem

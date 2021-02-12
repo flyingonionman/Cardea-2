@@ -1,0 +1,23 @@
+ul{
+    list-style-type: none;
+}
+
+#left .List{
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+
+}
+
+  
+
+.List_container{
+    display: flex;
+    margin-top:2vh;
+}
+
+img{
+    max-width:85%;
+    flex:1;
+}
