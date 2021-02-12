@@ -1,7 +1,7 @@
 import React from "react"
 
 /* 
-List which will contain the playlists of jobs articulated by individuals
+The home page in which all of the components will be stored
 
 */
 const List = () => {
