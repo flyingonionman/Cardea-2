@@ -9,7 +9,7 @@ Individual job playlists and their information
 const Queueitem = ({listname }: Props) => {
   
     return(
-        <li>
+        <li className="joblist">
             {listname}
         </li>
     )

@@ -34,6 +34,7 @@ h1 {
 h2{
   font-size: 4vw;
   font-family: Din;
+  margin-block-start: 0em;
 }
 
 h3{
@@ -55,9 +56,26 @@ h5{
 Removes scrollbars!.. for now
 
 */
+/* width */
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 10px;
 }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #222;
+}
+
 
 /* 
 All of the components present in main.tsx
@@ -70,15 +88,16 @@ All of the components present in main.tsx
 }
 
 #queue{
-  margin:5vw;
+  margin: 3vw;
 }
+
 #main{
   display: flex;
 }
 
 #left{
-  background-color: #CDFFF9;
-  
+  background-color: #fafafa ;
+
   height: 100vh;
   flex:6;
 
@@ -89,7 +108,8 @@ All of the components present in main.tsx
 
 
 #right{
-  background-color: #C5D9E2 ;
+  background-color: #CDFFF9;
+
   height: 100vh;
   flex:4;
 

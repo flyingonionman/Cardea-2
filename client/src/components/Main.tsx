@@ -16,11 +16,15 @@ const Main = () => {
                 <h1 id="logo">Cardea</h1>
 
                 <List
-                    job= {{location:'shrek',name:'min'}}
+                    job= {{location:'shrek',name:'List for SWEs'}}
                 />
 
                 <List
-                    job= {{location:'shrek',name:'min'}}
+                    job= {{location:'shrek',name:'List for graphic designer musicians'}}
+                />
+
+                <List
+                    job= {{location:'shrek',name:'List for Gamer product designers'}}
                 />
             </div>
 

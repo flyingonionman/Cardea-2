@@ -19,7 +19,7 @@ export const List = ({job} : Props) => {
 
     return(
         <div className="List">
-            <h4>{name} </h4>
+            <h4>{job.name} </h4>
             <h5>Recommended list for software engineers, curated by software engineers.</h5>
             <ul className="List_container">
                 <Listitem listname={"Cardea's favorites"} />

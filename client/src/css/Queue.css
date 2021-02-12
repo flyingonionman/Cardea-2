@@ -1,0 +1,7 @@
+#queue_container{
+    display:flex
+}
+
+.joblist{
+        height: 30px;
+}
