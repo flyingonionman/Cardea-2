@@ -1,7 +1,26 @@
 #queue_container{
-    display:flex
+    padding : 3vh 0;
+
 }
 
 .joblist{
-        height: 30px;
+    display:flex;
+    justify-content: space-between;
+    transition: height 1s;
+
+    padding: 1.52vh 1vw;
+}
+
+.joblist h5{
+    flex :1;
+
+}
+
+.accent {
+    background-color: white;
+}
+
+.description{
+    transition: height 1s;
+    height:20vh;
 }

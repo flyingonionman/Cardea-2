@@ -28,7 +28,7 @@ time, mark, audio, video {
 h1 {
     font-size: 5vw;
     font-family: Din;
-
+    color:#fda9af
 }
 
 h2{
@@ -66,8 +66,15 @@ p{
 .silver_text{
   color:	#808080;
 }
+
+hr{
+  background-color:black;
+  border: none;
+  height: 1px;
+
+}
 /* 
-Removes scrollbars!.. for now
+Prettify scrollbars!.. for now
 
 */
 /* width */
@@ -126,6 +133,7 @@ All of the components present in main.tsx
 
   height: 100vh;
   flex:4;
+  overflow-y: auto;
 
   display: flex;
   flex-direction: column;
