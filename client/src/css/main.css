@@ -26,7 +26,7 @@ time, mark, audio, video {
   }
 
 h1 {
-    font-size: 5vw;
+    font-size: 3vw;
     font-family: Din;
     color:#fda9af
 }
@@ -61,10 +61,6 @@ p{
 .listname{
   font-size:0.9vw;
 
-}
-
-.silver_text{
-  color:	#808080;
 }
 
 hr{
@@ -103,13 +99,13 @@ All of the components present in main.tsx
 */
 #logo {
   margin-left:3vw;
-  margin-top:2.5vh;
+  margin-top:1.5vh;
   margin-bottom:0.5vh;
 
 }
 
 #queue{
-  margin: 3vw;
+  margin: 2vh 3vw;
 }
 
 #main{

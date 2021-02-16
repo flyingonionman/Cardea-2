@@ -5,27 +5,33 @@ import '../css/List.css'
 List which will contain the playlists of jobs articulated by individuals
 
 */
-interface Job {
-    name: string;
-    location : string
-}
+
 
 type Props = {
-    job : Job
+    Data : any
 }
 
-export const List = ({job} : Props) => {
+export const List = ({Data} : Props) => {
     const [name, setName] = useState<string>("List for SWEs")
+
+    console.log(Data)
+
+    let variablelist = <ul className="List_container">
+        {Data.allLists.map((e: any, i : number)=>
+            <Listitem
+                listname={e.Name}
+                curatorname={e.Curator}
+                imgurl = {e.Image}
+                description={e.Description}
+                key={i}
+            />
+        )}
+    </ul>
 
     return(
         <div className="List">
-            <h4>{job.name} </h4>
-            <ul className="List_container">
-                <Listitem listname={"Cardea's favorites"} />
-                <Listitem listname={"Cardea's favorites"}/>
-                <Listitem listname={"Cardea's favorites"}/>
-                <Listitem listname={"Cardea's favorites"}/>
-            </ul>
+            <h4>List for SWEs </h4>
+            {variablelist}
             
         </div>
     )

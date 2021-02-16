@@ -5,7 +5,7 @@ ul{
 #left .List{
     padding-left: 3vw;
     padding-right: 1vw;
-    padding-bottom: 4vh;
+    padding-bottom: 1vh;
     padding-top: 1vh;
 
 }
@@ -16,8 +16,24 @@ ul{
     display: flex;
     margin-top:2vh;
 }
+.listitem{
+
+    
+}
+.listitem:hover{
+    
+}
 
 img{
     max-width:85%;
     flex:1;
 }
+
+
+.silver_text{
+    margin: 1vh 0;
+    width: 84%;
+    color: #808080;
+    
+  }
+  
