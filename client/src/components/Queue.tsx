@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import Queueitem from "./Queueitem"
 import "../css/Queue.css"
+import HelloWorld from "./HelloWorld"
 
 type Questitem = {
     id: number;
@@ -41,7 +42,7 @@ const Queue = () => {
     return (
 
         <div id="queue">
-            
+            {/* <HelloWorld/> */}
             <h2>Queue</h2>
             <hr></hr>
             <h4>tags : Cardea's favorites</h4>

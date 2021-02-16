@@ -27,3 +27,15 @@ Run the server.
 ```
 $ python manage.py runserver
 ```
+
+## TODOs ???
+
+Filter for the job list
+
+Populate the list moreeeeee
+Populate the jobs moree ( maybe with APIs )
+
+Actual functionality when clicked
+
+host it to Heroku ? ( Jesus fkin christ )
+Allow users to click (playlist creator to see other playlists by them)
