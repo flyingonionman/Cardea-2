@@ -1,0 +1,38 @@
+[
+  {
+    "pk":  1,
+    "model": "jobs.lists",
+    "fields": {
+      "name": "Cardea's Favorites",
+      "description": "This is a list of the jobs that Cardea thinks are super cool! Since members of our team have formerly worked at some of these companies we totally think they're awesome opportunities."
+
+    }
+  },
+  {
+    "model": "jobs.lists",
+    "fields": {
+    "name": "Big Tech",
+    "description": "Ever wanted to work at FAANG? Here's a list of jobs that are open at the biggest tech companies in the world. Companies range from Facebook to Google, Apple, Netflix and Amazon."
+    }
+  },
+  {
+    "pk":  101,
+    "model": "jobs.job",
+    "fields": {
+      "JobTitle": "Application Software Engineer",
+      "Company": "SpaceX",
+      "Location": "New York, NY",
+      "Lists": "Cardea's Favorites,Big Tech"
+    }
+  },
+  {
+    "pk":  102,
+    "model": "jobs.job",
+    "fields": {
+      "JobTitle": "Product Security Engineer",
+      "Company": "SpaceX",
+      "Location": "Hawthorne, California",
+      "Lists": "Cardea's Favorites,Big Tech"
+    }
+  }
+]
