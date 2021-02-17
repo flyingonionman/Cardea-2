@@ -26,7 +26,7 @@ time, mark, audio, video {
   }
 
 h1 {
-    font-size: 3vw;
+    font-size: 5vw;
     font-family: Din;
     color:#fda9af
 }
@@ -54,14 +54,10 @@ h5{
 
 p{
   font-family: Din;
-  font-size:0.8vw;
+  font-size:0.85vw;
 
 }
 
-.listname{
-  font-size:0.9vw;
-
-}
 
 hr{
   background-color:black;

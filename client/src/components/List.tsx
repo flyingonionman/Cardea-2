@@ -26,13 +26,15 @@ export const List = ({Data} : Props) => {
                 key={i}
             />
         )}
+
     </ul>
 
     return(
         <div className="List">
             <h4>List for SWEs </h4>
             {variablelist}
-            
+            <hr className="divider"></hr>
+
         </div>
     )
 }

@@ -42,7 +42,7 @@ const Queue = () => {
 
         <div id="queue">
             {/* <HelloWorld/> */}
-            <h1>Queue</h1>
+            <h2>Queue</h2>
             <hr></hr>
             <h4>tags : Cardea's favorites</h4>
             {variablelist}

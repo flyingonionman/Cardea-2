@@ -19,7 +19,6 @@ const Listitem = ({listname , curatorname, description, imgurl}: Props) => {
             <p className="listname">{listname}</p>
             <p>Curated by {curatorname} </p>
             <p className="silver_text">{description}</p>
-
         </li>
     )
 }

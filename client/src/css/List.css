@@ -4,13 +4,16 @@ ul{
 
 #left .List{
     padding-left: 3vw;
-    padding-right: 1vw;
-    padding-bottom: 1vh;
+    padding-right: 3vw;
+    padding-bottom: 3vh;
     padding-top: 1vh;
 
 }
 
-  
+
+.listname{
+    font-size:1.2vw;  
+}
 
 .List_container{
     display: flex;
@@ -25,15 +28,20 @@ ul{
 }
 
 img{
-    max-width:85%;
-    flex:1;
+    max-width: 12vw;
+        flex:1;
 }
 
 
 .silver_text{
-    margin: 1vh 0;
-    width: 84%;
+    margin: 3vh 0;
+    width: 88%;
     color: #808080;
     
   }
   
+
+.divider{
+    float: left;
+    width: 97%;
+}

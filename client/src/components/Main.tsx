@@ -29,7 +29,7 @@ const Main = () => {
         <div id="main">
 
             <div id="left">
-                <h1 id="logo">Cardea</h1>
+                <h1 id="logo">Cardea2</h1>
                 {loading && <h1>Loading</h1>}
                 {error && <h1>Error</h1>}
                 {data &&        
@@ -47,7 +47,6 @@ const Main = () => {
                         />
                     </>    
                 }
-
             </div>
 
             <div id="right">
