@@ -20,7 +20,7 @@ export function ListReducer(
             };
         case REMOVE_LIST:
             return {
-                listoflist : [...state.listoflist]
+                listoflist : [...state.listoflist.filter(e=> !(e===action.payload))]
             };        
         
         default: return state;

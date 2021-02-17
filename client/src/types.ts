@@ -12,9 +12,8 @@ interface AddListAction {
 
 interface RemoveListAction {
   type: typeof REMOVE_LIST
-  meta: {
-    timestamp: number
-  }
+  payload:string
+
 }
 
 export type ListActionTypes = AddListAction | RemoveListAction

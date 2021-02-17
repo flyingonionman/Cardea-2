@@ -5,7 +5,6 @@
 
 .joblist{
     display:flex;
-    justify-content: space-between;
     transition: height 1s;
 
     padding: 1.52vh 1vw;
@@ -32,3 +31,17 @@
     font-family: Din;
 
 }
+
+.numberorder{
+    flex:.1
+}
+.company{
+    flex:.3
+}
+.positions{
+    flex:.5
+}
+
+.location{
+    flex:.1;
+} 

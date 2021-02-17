@@ -6,4 +6,11 @@ export const addlist = (newitem: string): ListActionTypes => {
       payload: newitem
     };
   };
-  
+
+
+export const removelist = (newitem: string): ListActionTypes => {
+  return {
+    type: REMOVE_LIST,
+    payload: newitem
+  };
+};

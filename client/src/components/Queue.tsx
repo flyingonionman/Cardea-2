@@ -39,7 +39,7 @@ const Queue = (props:Props) => {
         { "id": 3, "name": "googler", },
         { "id": 4, "name": "googler", },
         { "id": 5, "name": "googler", },
-        { "id": 6, "name": "googler", },
+        { "id": 6, "name": "gooeeeegler", },
 
     ])
 
@@ -54,12 +54,15 @@ const Queue = (props:Props) => {
     */
     let variablelist = <ul id="queue_container">
         <li className="joblist">
-            <h5>Company</h5>
-            <h5>Position</h5>
-            <h5 className="location">Location </h5>
+            <p className="numberorder">#</p>
+
+            <p className="company">Company</p>
+            <p className="positions">Position</p>
+            <p className="location">Location </p>
         </li>
         {itemarray.map((e, i) => (
             <Queueitem
+                order={i}
                 listname={e.name}
                 backgroundcolor={i}
                 key={i}

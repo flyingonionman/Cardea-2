@@ -1,6 +1,6 @@
-import React from "react"
+import React, {useState} from "react"
 import { connect, ConnectedProps } from 'react-redux'
-import { addlist } from '../actions/'
+import { addlist , removelist} from '../actions/'
 
 /* 
     Redux functionalities
@@ -10,7 +10,8 @@ const mapState = () => ({})
   
 const mapDispatch = (dispatch :any) => {
     return {
-        addtolist: (list: any) => (dispatch(addlist(list)))
+        addtolist: (list: any) => (dispatch(addlist(list))),
+        removefromlist:  (list:any) => (dispatch(removelist(list)))
     }
 } 
 
@@ -31,18 +32,29 @@ type Props = PropsFromRedux & {
 Individual job playlists and their information    
 */
 const Listitem = (props: Props) => {
-  
+    const [clicked, setClicked] = useState(false)
+
     const clickhandler = () => {
-        props.addtolist(props.listname)
+        if (clicked) {
+            props.removefromlist(props.listname)
+        } else {
+            props.addtolist(props.listname)
+        }
+        setClicked(!clicked);
     }
 
     return(
         <li className="listitem">
-            <img
+            <img className={(clicked ? "clicked": "")}
                 onClick={clickhandler}
                 src={props.imgurl}
             />
-            <p className="listname">{props.listname}</p>
+            <p
+                onClick={clickhandler}
+                className="listname"
+            >
+                {props.listname}
+            </p>
             <p>Curated by <a className="curator">{props.curatorname} </a></p>
             <p className="silver_text">{props.description}</p>
         </li>

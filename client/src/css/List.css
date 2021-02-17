@@ -15,6 +15,11 @@ ul{
     font-size:1.2vw;  
 }
 
+.listname:hover{
+    cursor:pointer;
+
+}
+
 .List_container{
     display: flex;
     margin-top:2vh;
@@ -33,7 +38,6 @@ ul{
 
 .listitem img:hover{
     cursor:pointer;
-    opacity:.6;
     transition: all .4s;
 }
 
@@ -59,3 +63,8 @@ ul{
     float: left;
     width: 97%;
 }
+
+.clicked{
+    filter: brightness(50%);
+}
+
