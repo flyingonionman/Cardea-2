@@ -4,7 +4,7 @@ ul{
 
 #left .List{
     padding-left: 3vw;
-    padding-right: 3vw;
+    padding-right: 1vw;
     padding-bottom: 3vh;
     padding-top: 1vh;
 
@@ -20,18 +20,32 @@ ul{
     margin-top:2vh;
 }
 .listitem{
-
-    
-}
-.listitem:hover{
+    flex: 1;
     
 }
 
-img{
+.listitem img{
     max-width: 12vw;
-        flex:1;
+    flex:1;
+    transition: all .4s;
+
 }
 
+.listitem img:hover{
+    cursor:pointer;
+    opacity:.6;
+    transition: all .4s;
+}
+
+.listitem .curator{
+    display:inline;
+}
+
+.listitem .curator:hover{
+    text-decoration: underline;
+    cursor:pointer;
+
+}
 
 .silver_text{
     margin: 3vh 0;

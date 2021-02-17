@@ -24,3 +24,11 @@
     transition: height 1s;
     height:20vh;
 }
+
+#queue .tags{
+    display:inline;
+    padding:3px;
+    text-decoration: underline;
+    font-family: Din;
+
+}

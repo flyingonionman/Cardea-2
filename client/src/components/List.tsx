@@ -14,7 +14,6 @@ type Props = {
 export const List = ({Data} : Props) => {
     const [name, setName] = useState<string>("List for SWEs")
 
-    console.log(Data)
 
     let variablelist = <ul className="List_container">
         {Data.allLists.map((e: any, i : number)=>

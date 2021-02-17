@@ -1,0 +1,24 @@
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import rootReducer from "./reducer";
+
+const initialState = {};
+const middleware = [thunk];
+const store = createStore(
+  rootReducer,
+  initialState,
+  compose(
+    applyMiddleware(...middleware)  
+)
+);
+
+declare global {
+  interface Window {
+      store:any;
+  }
+}
+
+window.store = store;
+
+
+export default store;
