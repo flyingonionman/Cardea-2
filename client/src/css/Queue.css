@@ -13,9 +13,19 @@
   
 .joblist{
     display:flex;
-    transition: height 1s;
+    flex-direction: column;
+    transition: height .2s;
     border-bottom: 1px solid rgba(0, 0, 0, .3);
     padding: 1.32vh 0vw;
+    overflow: hidden;
+    height: 2vh;
+}
+
+#columns{
+    display:flex;
+    transition: height .2s;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    padding: 1.32vh 0vw; 
 }
 
 .joblist:hover{
@@ -27,18 +37,20 @@
 
 }
 
-.accent {
-/*     background-color: white;
- */}
+.joblist .basic{
+    display:flex;
+
+}
+
 
 .description{
-    transition: height 1s;
+    transition: height .2s;
     height:20vh;
 }
 
-.tagscontainer{
-/*     margin-bottom: 3vh;
- */}
+.details{
+    padding:3vh;
+}
 
 #queue .tags{
     display:inline;

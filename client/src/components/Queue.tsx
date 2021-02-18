@@ -56,17 +56,10 @@ type JobType = {
 let curridx = 0 
 
 const Queue = (props:Props) => {
-    const [itemarray, setitemarray] = useState<Queueitem[]>([
-        { "id": 1, "name": "google", }
-
-    ])
-
     const [temparray, setTemparray] = useState<JobType[]>([
-     
     ])
 
     const [jobarray, setJobarray] = useState<JobType[]>([
-  
     ])
 
     const updater = (data: any) => {
@@ -101,7 +94,7 @@ const Queue = (props:Props) => {
     
     */
     let variablelist = <ul id="queue_container">
-        <li className="joblist">
+        <li id="columns">
             <p className="numberorder">#</p>
 
             <p className="company">Company</p>
@@ -116,6 +109,10 @@ const Queue = (props:Props) => {
                 jobname={e.JobTitle}
                 company={e.Company}
                 location={e.Location}
+                salarymin={e.SalaryMin}
+                salarymax={e.SalaryMax}
+                applylink={e.ApplyLink}
+                lists = {e.Lists}
                 backgroundcolor={i}
                 key={i}
             />
