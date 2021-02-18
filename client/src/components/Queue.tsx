@@ -1,9 +1,31 @@
 import React, { useState, useEffect } from "react"
 import { connect, ConnectedProps } from 'react-redux'
 import Queueitem from "./Queueitem"
-import Retriever from './Retriever'
+import {  useLazyQuery  } from "@apollo/react-hooks"
 
 import "../css/Queue.css"
+
+import gql from "graphql-tag"
+
+const LIST_SELECT = gql`
+    query Listselect($Name:String!){
+        listselect(Name: $Name){
+            Description
+            jobSet{
+                id
+                JobTitle
+                Company
+                Location
+                SalaryMin
+                SalaryMax
+                ApplyLink
+                Lists{
+                    Name
+                }
+            }
+        }
+    }
+`
 
 interface listState {
     List: any
@@ -53,17 +75,20 @@ type JobType = {
 
 /* 
  */
-let curridx = 0 
 
-const Queue = (props:Props) => {
+const Queue = (props: Props) => {
+    const [currnumber ,setCurrnumber] = useState<number>(0)
     const [temparray, setTemparray] = useState<JobType[]>([
     ])
 
-    const [jobarray, setJobarray] = useState<JobType[]>([
-    ])
-
+    
+    const [getjobs, {loading, error, data }] = useLazyQuery(LIST_SELECT);
+    
+    /* 
+    Updates the existing roster of jobs
+    
+    */
     const updater = (data: any) => {
-
         setTemparray([...temparray, ...data].filter((thing : any, index : any, self: any) => {
             return index === self.findIndex((t : any) => (
                  t.id === thing.id
@@ -74,20 +99,41 @@ const Queue = (props:Props) => {
        
     }
 
-    console.log(props.list.listoflist)
-    let update = props.list.listoflist.map((e: string, i: number) => (
-        
-        <Retriever
-            listname={e}
-            updater={(data: any) => { updater(data) }}
-            key={i}
-        />
-    ))
-    
     useEffect(() => {
-        console.log(temparray)
+        setCurrnumber(currnumber+1)
+        if (props.list.listoflist.length < currnumber) {
+            setTemparray([])
+            setCurrnumber(props.list.listoflist.length)
+
+            /* 
+            fix this!! ( I guess...)
+            
+            */
+            getjobs({ variables: { Name: "" } })
+
+        } 
+
+        props.list.listoflist.map((name: string, i: number) => {
+            console.log(name)
+            getjobs({ variables: { Name: name } })
+        })
+    
+
+    }, [props.list.listoflist])
+
+
+    useEffect(() => {
+        if (data !== null && data !== undefined) {
+            if (data.listselect) {
+                updater(data.listselect.jobSet)
+            }
+        }
+    }, [data])
+
+    useEffect(() => {
 
     }, [temparray])
+
 
     /* 
         Dynamically loads jobs from the selected list
@@ -103,9 +149,8 @@ const Queue = (props:Props) => {
         </li>
         <hr></hr>
         {temparray.map((e : any, i: number) => (
-            
             <Queueitem
-                order={i}
+                order={i+1}
                 jobname={e.JobTitle}
                 company={e.Company}
                 location={e.Location}
@@ -115,7 +160,8 @@ const Queue = (props:Props) => {
                 lists = {e.Lists}
                 backgroundcolor={i}
                 key={i}
-            />
+            /> 
+    
         ))}
     </ul>
     
@@ -133,10 +179,24 @@ const Queue = (props:Props) => {
             <h2>Queue</h2>
             {variabletag}
             {variablelist}
-            {update}
 
         </div>
     )
 }
 
 export default connector(Queue)
+
+ //Add it back later !! 
+        
+{/* <Queueitem
+    order={i}
+    jobname={e.JobTitle}
+    company={e.Company}
+    location={e.Location}
+    salarymin={e.SalaryMin}
+    salarymax={e.SalaryMax}
+    applylink={e.ApplyLink}
+    lists = {e.Lists}
+    backgroundcolor={i}
+    key={i}
+/> */}

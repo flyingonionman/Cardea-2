@@ -28,7 +28,6 @@ const Queueitem = ( props: Props) => {
 
     }])
 
-    console.log(props.lists)
     return(
         <li className={
             "joblist " +
@@ -53,8 +52,8 @@ const Queueitem = ( props: Props) => {
                 <a href={props.applylink} target="_blank">Apply here!</a>
                 <ul>
                     Part of these lists:
-                    {props.lists.map((e: any, i: number) => {
-                        return <p>{e.Name}</p>  
+                    {props.lists.map((e: ListType, i: number) => {
+                        return <p key={i}>{e.Name}</p>  
                     })}
                 </ul>
 

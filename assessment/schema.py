@@ -32,7 +32,9 @@ class Query(graphene.ObjectType):
         return None
 
     def resolve_listselect(root,info, Name=None):
-        if id is not None:
+        if Name == "" :
+            return None
+        if Name is not None:
             return Lists.objects.get(Name=Name)
         return None
 
