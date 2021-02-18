@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react"
 import { connect, ConnectedProps } from 'react-redux'
-
 import Queueitem from "./Queueitem"
+import Retriever from './Retriever'
+
 import "../css/Queue.css"
 
 interface listState {
     List: any
 }
+
+
+
 
 
 /* 
@@ -27,27 +31,71 @@ type Props = PropsFromRedux
 
 
 
-type Questitem = {
+type Queueitem = {
     id: number;
     name: string;
 }
 
+interface ListType {
+    Name: string
+}
+
+type JobType = {
+    id: string,
+    JobTitle: string,
+    Company: string,
+    Location: string,
+    SalaryMin: string,
+    SalaryMax: string,
+    Lists: ListType[],
+    ApplyLink : string
+}
+
+/* 
+ */
+let curridx = 0 
+
 const Queue = (props:Props) => {
-    const [itemarray, setitemarray] = useState<Questitem[]>([
-        { "id": 1, "name": "google", },
-        { "id": 2, "name": "googler", },
-        { "id": 3, "name": "googler", },
-        { "id": 4, "name": "googler", },
-        { "id": 5, "name": "googler", },
-        { "id": 6, "name": "gooeeeegler", },
+    const [itemarray, setitemarray] = useState<Queueitem[]>([
+        { "id": 1, "name": "google", }
 
     ])
 
-    useEffect(() => {
-        
-    }, [])
+    const [temparray, setTemparray] = useState<JobType[]>([
+     
+    ])
 
-    console.log(props.list)
+    const [jobarray, setJobarray] = useState<JobType[]>([
+  
+    ])
+
+    const updater = (data: any) => {
+
+        setTemparray([...temparray, ...data].filter((thing : any, index : any, self: any) => {
+            return index === self.findIndex((t : any) => (
+                 t.id === thing.id
+              ))
+        }, () => {
+            
+        }))
+       
+    }
+
+    console.log(props.list.listoflist)
+    let update = props.list.listoflist.map((e: string, i: number) => (
+        
+        <Retriever
+            listname={e}
+            updater={(data: any) => { updater(data) }}
+            key={i}
+        />
+    ))
+    
+    useEffect(() => {
+        console.log(temparray)
+
+    }, [temparray])
+
     /* 
         Dynamically loads jobs from the selected list
     
@@ -60,17 +108,21 @@ const Queue = (props:Props) => {
             <p className="positions">Position</p>
             <p className="location">Location </p>
         </li>
-        {itemarray.map((e, i) => (
+        <hr></hr>
+        {temparray.map((e : any, i: number) => (
+            
             <Queueitem
                 order={i}
-                listname={e.name}
+                jobname={e.JobTitle}
+                company={e.Company}
+                location={e.Location}
                 backgroundcolor={i}
                 key={i}
             />
         ))}
     </ul>
     
-    let variabletag = <ul>
+    let variabletag = <ul className="tagscontainer">
         <h5 style={{ display: "inline" }}>Tags : </h5>
         {props.list.listoflist.map((e : string, i: number) => (
             <li className="tags" key={i}>{e}</li>
@@ -78,13 +130,14 @@ const Queue = (props:Props) => {
     </ul>
     
     return (
-
+        
         <div id="queue">
             {/* <HelloWorld/> */}
             <h2>Queue</h2>
-            <hr></hr>
             {variabletag}
             {variablelist}
+            {update}
+
         </div>
     )
 }

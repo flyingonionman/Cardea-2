@@ -6,7 +6,7 @@ import {
 } from '../types'
 
 const initialState:list = {
-    listoflist: [""]
+    listoflist: []
 };
 
 export function ListReducer(

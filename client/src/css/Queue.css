@@ -3,11 +3,23 @@
 
 }
 
+#queue{
+    margin: 4vh 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  
 .joblist{
     display:flex;
     transition: height 1s;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    padding: 1.32vh 0vw;
+}
 
-    padding: 1.52vh 1vw;
+.joblist:hover{
+    cursor: pointer;
 }
 
 .joblist h5{
@@ -16,13 +28,17 @@
 }
 
 .accent {
-    background-color: white;
-}
+/*     background-color: white;
+ */}
 
 .description{
     transition: height 1s;
     height:20vh;
 }
+
+.tagscontainer{
+/*     margin-bottom: 3vh;
+ */}
 
 #queue .tags{
     display:inline;
@@ -39,9 +55,17 @@
     flex:.3
 }
 .positions{
-    flex:.5
+    flex:.6
 }
 
 .location{
-    flex:.1;
+    flex:.3;
+} 
+
+.company:hover{
+    text-decoration: underline;
+}
+
+.location:hover{
+    text-decoration: underline;
 } 

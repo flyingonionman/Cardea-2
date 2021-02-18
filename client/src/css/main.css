@@ -26,13 +26,13 @@ time, mark, audio, video {
   }
 
 h1 {
-    font-size: 5vw;
+    font-size: 7vw;
     font-family: Din;
     color:#fda9af
 }
 
 h2{
-  font-size: 4vw;
+  font-size: 6vw;
   font-family: Din;
   margin-block-start: 0em;
 }
@@ -63,7 +63,7 @@ hr{
   background-color:black;
   border: none;
   height: 1px;
-
+  margin:0;
 }
 /* 
 Prettify scrollbars!.. for now
@@ -97,12 +97,9 @@ All of the components present in main.tsx
   margin-left:3vw;
   margin-top:1.5vh;
   margin-bottom:0.5vh;
-
+  flex: 1;
 }
 
-#queue{
-  margin: 2vh 3vw;
-}
 
 #main{
   display: flex;
@@ -121,7 +118,7 @@ All of the components present in main.tsx
 
 
 #right{
-  background-color: #CDFFF9;
+  background-color: #ccf2f4;
 
   height: 100vh;
   flex:4;

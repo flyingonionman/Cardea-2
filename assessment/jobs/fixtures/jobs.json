@@ -50,7 +50,10 @@
       "JobTitle": "Application Software Engineer",
       "Company": "SpaceX",
       "Location": "New York, NY",
-      "Lists": "Cardea's Favorites,Big Tech"
+      "SalaryMin": "$40,000",
+      "SalaryMax": "$65,000",
+      "ApplyLink": "https://boards.greenhouse.io/spacex/jobs/5027836002",
+      "Lists": [1]
     }
   },
   {
@@ -60,7 +63,101 @@
       "JobTitle": "Product Security Engineer",
       "Company": "SpaceX",
       "Location": "Hawthorne, California",
-      "Lists": "Cardea's Favorites,Big Tech"
+      "SalaryMin": "$40,000",
+      "SalaryMax": "$70,000",
+      "ApplyLink": "https://boards.greenhouse.io/spacex/jobs/5026870002",
+      "Lists": [3]
+    }
+  },
+  {
+    "pk":  103,
+    "model": "jobs.job",
+    "fields": {
+      "JobTitle": "Project Researcher",
+      "Company": "Google",
+      "Location": "New York, NY",
+      "SalaryMin": "$60,000",
+      "SalaryMax": "$75,000",
+      "ApplyLink": "https://cardea.work/company/google",
+      "Lists": [1,2]
+    }
+  },
+  {
+    "pk":  103,
+    "model": "jobs.job",
+    "fields": {
+      "JobTitle": "Project Researcher",
+      "Company": "Google",
+      "Location": "New York, NY",
+      "SalaryMin": "$60,000",
+      "SalaryMax": "$75,000",
+      "ApplyLink": "https://cardea.work/company/google",
+      "Lists": [1,2]
+    }
+  },
+  {
+    "pk":  104,
+    "model": "jobs.job",
+    "fields": {
+      "JobTitle": "CEO",
+      "Company": "Google",
+      "Location": "Remote",
+      "SalaryMin": "$60,000",
+      "SalaryMax": "$65,000",
+      "ApplyLink": "https://cardea.work/company/google",
+      "Lists": [2,3]
+    }
+  },
+  {
+    "pk":  105,
+    "model": "jobs.job",
+    "fields": {
+      "JobTitle": "Marketing Manager",
+      "Company": "Peloton",
+      "Location": "Miami, FL",
+      "SalaryMin": "$70,000",
+      "SalaryMax": "$75,000",
+      "ApplyLink": "https://boards.greenhouse.io/peloton/jobs/2456864",
+      "Lists": [2]
+    }
+  },
+  {
+    "pk":  106,
+    "model": "jobs.job",
+    "fields": {
+      "JobTitle": "Executive Assistant",
+      "Company": "Notion",
+      "Location": "San Fransisco, CA",
+      "SalaryMin": "$50,000",
+      "SalaryMax": "$70,000",
+      "ApplyLink": "https://boards.greenhouse.io/notion/jobs/4302660003",
+      "Lists": [1,2,3]
+    }
+  },
+  {
+    "pk":  107,
+    "model": "jobs.job",
+    "fields": {
+      "JobTitle": "Group Product Manager",
+      "Company": "Beyond Meat",
+      "Location": "Remote",
+      "SalaryMin": "$45,000",
+      "SalaryMax": "$60,000",
+      "ApplyLink": "https://jobs.lever.co/imperfectfoods/101fee2d-8e1f-4f5d-bf03-38e8b41c603a",
+      "Lists": [3,4]
+    }
+  },
+  {
+    "pk":  108,
+    "model": "jobs.job",
+    "fields": {
+      "JobTitle": "Food Tester",
+      "Company": "Beyond Meat",
+      "Location": "San Fransisco, CA",
+      "SalaryMin": "$40,000",
+      "SalaryMax": "$60,000",
+      "ApplyLink": "https://jobs.smartrecruiters.com/oneclick-ui/company/McDonaldsCorporation/publication/fb47215c-eee1-4a71-9512-511c370d2dc9",
+      "Lists": [4]
     }
   }
 ]

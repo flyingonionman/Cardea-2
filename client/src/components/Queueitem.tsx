@@ -1,15 +1,24 @@
 import React, {useState} from "react"
 
+
 type Props = {
-    listname: string
-    backgroundcolor: number
+    jobname: string,
+    company: string,
+    location: string,
+    backgroundcolor: number,
     order : number
 }
+
+
 /* 
 Individual job playlists and their information    
 */
 const Queueitem = ( props: Props) => {
     const [toggle, settoggle] = useState(false)
+
+    const [jobarray, setJobarray] = useState([{
+
+    }])
 
     return(
         <li className={
@@ -21,9 +30,10 @@ const Queueitem = ( props: Props) => {
         >
             <p className="numberorder">{props.order}</p>
 
-            <p className="company">{props.listname}</p>
-            <p className="positions">engineer</p>
-            <p className="location">LA/NY </p>
+            <p className="company">{props.company}</p>
+            <p className="positions">{props.jobname}</p>
+            <p className="location">{props.location}</p>
+
         </li>
     )
 }

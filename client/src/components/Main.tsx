@@ -30,6 +30,9 @@ const Main = () => {
 
             <div id="left">
                 <h1 id="logo">Cardea2</h1>
+
+                
+
                 {loading && <h1>Loading</h1>}
                 {error && <h1>Error</h1>}
                 {data &&        
@@ -38,13 +41,7 @@ const Main = () => {
                             Data={data}
                         />
            
-                        <List
-                            Data={data}
-                        />
                     
-                        <List
-                            Data={data}
-                        />
                     </>    
                 }
             </div>
