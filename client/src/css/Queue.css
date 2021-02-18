@@ -14,16 +14,16 @@
 .joblist{
     display:flex;
     flex-direction: column;
-    transition: height .2s;
+    transition: max-height .2s;
     border-bottom: 1px solid rgba(0, 0, 0, .3);
     padding: 1.32vh 0vw;
     overflow: hidden;
-    height: 2vh;
+    max-height: 2vh;
 }
 
 #columns{
     display:flex;
-    transition: height .2s;
+    transition: max-height .2s;
     border-bottom: 1px solid rgba(0, 0, 0, .3);
     padding: 1.32vh 0vw; 
 }
@@ -44,8 +44,8 @@
 
 
 .description{
-    transition: height .2s;
-    height:20vh;
+    transition: max-height .2s;
+    max-height: 40vh;
 }
 
 .details{
