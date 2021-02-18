@@ -48,6 +48,7 @@ const Listitem = (props: Props) => {
             <img className={(clicked ? "clicked": "")}
                 onClick={clickhandler}
                 src={props.imgurl}
+                alt=""
             />
             <p
                 onClick={clickhandler}
@@ -55,7 +56,7 @@ const Listitem = (props: Props) => {
             >
                 {props.listname}
             </p>
-            <p>Curated by <a className="curator">{props.curatorname} </a></p>
+            <p className="curator">Curated by {props.curatorname} </p>
             <p className="silver_text">{props.description}</p>
         </li>
     )

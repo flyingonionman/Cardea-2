@@ -24,9 +24,6 @@ Individual job playlists and their information
 const Queueitem = ( props: Props) => {
     const [toggle, settoggle] = useState(false)
 
-    const [jobarray, setJobarray] = useState([{
-
-    }])
 
     return(
         <li className={
@@ -49,7 +46,9 @@ const Queueitem = ( props: Props) => {
             <div className="details">
                 <p >Salary minimum: {props.salarymin}</p>
                 <p >Salary maximum: {props.salarymax}</p>
-                <a href={props.applylink} target="_blank">Apply here!</a>
+                <a href={props.applylink} target="_blank"
+                     rel="noopener noreferrer"
+                >Apply here!</a>
                 <ul>
                     Part of these lists:
                     {props.lists.map((e: ListType, i: number) => {

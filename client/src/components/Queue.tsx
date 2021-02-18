@@ -77,13 +77,14 @@ type JobType = {
  */
 
 const Queue = (props: Props) => {
-    const [currnumber ,setCurrnumber] = useState<number>(0)
+    const [currnumber ,setCurrnumber] = useState<number>(-1)
     const [temparray, setTemparray] = useState<JobType[]>([
     ])
 
     
-    const [getjobs, {loading, error, data }] = useLazyQuery(LIST_SELECT);
+    const [getjobs, {data }] = useLazyQuery(LIST_SELECT);
     
+    const [datalist, setDatalist] = useState()
     /* 
     Updates the existing roster of jobs
     
@@ -100,24 +101,22 @@ const Queue = (props: Props) => {
     }
 
     useEffect(() => {
-        setCurrnumber(currnumber+1)
-        if (props.list.listoflist.length < currnumber) {
-            setTemparray([])
-            setCurrnumber(props.list.listoflist.length)
+        setCurrnumber(currnumber=> currnumber+1)
 
-            /* 
-            fix this!! ( I guess...)
-            
-            */
+        if (props.list.listoflist.length < currnumber) {
+            setCurrnumber(props.list.listoflist.length)
             getjobs({ variables: { Name: "" } })
+            setTemparray([])
 
         } 
 
         props.list.listoflist.map((name: string, i: number) => {
-            console.log(name)
+            console.log(props.list.listoflist)
             getjobs({ variables: { Name: name } })
+            return
         })
     
+        console.log(data)
 
     }, [props.list.listoflist])
 
@@ -126,13 +125,20 @@ const Queue = (props: Props) => {
         if (data !== null && data !== undefined) {
             if (data.listselect) {
                 updater(data.listselect.jobSet)
-            }
+
+                /* 
+                Effectively "resets" the data queue
+                */
+                getjobs({ variables: { Name: "" } })
+
+            } 
+        } else {
         }
-    }, [data])
+    }, [data,])
 
     useEffect(() => {
 
-    }, [temparray])
+    }, [currnumber])
 
 
     /* 
@@ -185,18 +191,3 @@ const Queue = (props: Props) => {
 }
 
 export default connector(Queue)
-
- //Add it back later !! 
-        
-{/* <Queueitem
-    order={i}
-    jobname={e.JobTitle}
-    company={e.Company}
-    location={e.Location}
-    salarymin={e.SalaryMin}
-    salarymax={e.SalaryMax}
-    applylink={e.ApplyLink}
-    lists = {e.Lists}
-    backgroundcolor={i}
-    key={i}
-/> */}

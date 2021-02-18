@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React from "react"
 import Listitem from "./Listitem"
 import '../css/List.css'
 /* 
@@ -12,9 +12,6 @@ type Props = {
 }
 
 export const List = ({Data} : Props) => {
-    const [name, setName] = useState<string>("List for SWEs")
-
-
     let variablelist = <ul className="List_container">
         {Data.allLists.map((e: any, i : number)=>
             <Listitem
