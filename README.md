@@ -48,6 +48,12 @@ Migrate.
 $ python manage.py migrate
 ```
 
+Load the data
+```
+$ python manage.py loaddata jobs
+```
+
+
 Run the server.
 
 ```
@@ -60,8 +66,8 @@ To start the app in http://localhost:3000
 
 ```
 $ cd client
+$ yarn 
 $ yarn schema
-$ yarn add
 $ yarn start
 
 ```
