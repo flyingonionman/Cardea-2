@@ -1,8 +1,15 @@
-## Getting started
+## Hello! welcome to my project 
+
+As you have requested, I have configured a react-frontend Django-backend application
+that uses the data you provided to emulate the cardea experience. 
+
+1. All of the lists (and any information you choose to include about it) should be shown and selectable. Users should be able to select multiple lists.
+
+## Getting started -- backend
 
 The following steps should help you get the server up and running:
 
-Create a virtual environment, and activate it.
+Create a virtual environment in the root directory, and activate it.
 
 ```
 $ python3 -m venv venv
@@ -28,14 +35,14 @@ Run the server.
 $ python manage.py runserver
 ```
 
-## TODOs ???
+## Getting started -- frontend
 
-Filter for the job list
+To start the app in http://localhost:3000
 
-Populate the list moreeeeee
-Populate the jobs moree ( maybe with APIs )
+```
+$ cd client
+$ yarn schema
+$ yarn add
+$ yarn start
 
-Actual functionality when clicked
-
-host it to Heroku ? ( Jesus fkin christ )
-Allow users to click (playlist creator to see other playlists by them)
+```
