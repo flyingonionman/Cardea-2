@@ -52,6 +52,14 @@
     padding:3vh;
 }
 
+.details p {
+    margin:1vh;
+}
+
+.details a {
+    margin:1vh;
+}
+
 #queue .tags{
     display:inline;
     padding:3px;
@@ -76,8 +84,27 @@
 
 .company:hover{
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .location:hover{
     text-decoration: underline;
+    cursor: pointer;
+
 } 
+
+.listoflist{
+    display: flex;
+    margin:1vh;
+
+}
+
+.listoflistholder{
+    margin-right:1vw;
+    flex:1;
+}
+
+.listoflistname{
+    margin:0;
+    font-size:.6vw;
+}

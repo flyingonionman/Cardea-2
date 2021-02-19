@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useReducer } from "react"
 import { connect, ConnectedProps } from 'react-redux'
 import Queueitem from "./Queueitem"
 import {  useLazyQuery  } from "@apollo/react-hooks"
@@ -21,6 +21,7 @@ const LIST_SELECT = gql`
                 ApplyLink
                 Lists{
                     Name
+                    Image
                 }
             }
         }
@@ -60,6 +61,7 @@ type Queueitem = {
 
 interface ListType {
     Name: string
+    Image: string
 }
 
 type JobType = {
@@ -74,76 +76,81 @@ type JobType = {
 }
 
 /* 
+    Reducer for sorting mechanism
  */
 
-const Queue = (props: Props) => {
-    const [currnumber ,setCurrnumber] = useState<number>(-1)
-    const [temparray, setTemparray] = useState<JobType[]>([
-    ])
 
-    
+
+const Queue = (props: Props) => {
+    let temparray : JobType[] = []
+    const [jobarray, setJobarray] = useState<JobType[]>([ ])
+
     const [getjobs, {data }] = useLazyQuery(LIST_SELECT);
     
-    const [datalist, setDatalist] = useState()
+    const [sort, setsort] =useState<string>("");
+
+
     /* 
-    Updates the existing roster of jobs
+    We fetch data from the server whenever reducer gets triggered ( whenever we click any of the lists)
     
     */
-    const updater = (data: any) => {
-        setTemparray([...temparray, ...data].filter((thing : any, index : any, self: any) => {
-            return index === self.findIndex((t : any) => (
-                 t.id === thing.id
-              ))
-        }, () => {
-            
-        }))
-       
-    }
 
     useEffect(() => {
-        setCurrnumber(currnumber=> currnumber+1)
-
-        if (props.list.listoflist.length < currnumber) {
-            setCurrnumber(props.list.listoflist.length)
-            getjobs({ variables: { Name: "" } })
-            setTemparray([])
-
-        } 
-
-
         getjobs({ variables: { Name: props.list.listoflist } })
-       
-    
     }, [props.list.listoflist])
 
 
+    /* 
+    When the data is receieved, it is filtered to check for duplicate entries
+
+    */
     useEffect(() => {
         if (data) {
-            for (let e of data.listoflist) {
-                console.log(e.jobSet)
-            }
+            data.listoflist.map((e : any, i: number) => {
+                temparray = [...temparray, ...e.jobSet]
+            })
+
+            /* 
+            fiilter duplicate entries ( two jobs in the same list)
+            */
+            temparray = temparray.filter((thing : any, index : any, self: any) => {
+                return index === self.findIndex((t : any) => (
+                     t.id === thing.id
+                  ))
+            })
+
+            setJobarray(temparray);
+            temparray = []
         }
-    }, [data,])
+    }, [data])
 
-    useEffect(() => {
+    const sorter = (sortby: string) => {
+        console.log(sortby)
+        switch (sortby) {
+            case 'location':
+                jobarray.sort((a,b)=> (a.Location.toLowerCase() > b.Location.toLowerCase()) ? 1 : -1)
+            case 'company':
+                jobarray.sort((a,b)=> (a.Company.toLowerCase() > b.Company.toLowerCase()) ? 1 : -1)
+            default:
+        }
 
-    }, [currnumber])
-
+    }
+        
 
     /* 
-        Dynamically loads jobs from the selected list
+        Component that dynamically loads jobs and its corresponding details
     
     */
     let variablelist = <ul id="queue_container">
         <li id="columns">
             <p className="numberorder">#</p>
 
-            <p className="company">Company</p>
+            <p onClick={()=>sorter('company')} className="company">Company</p>
             <p className="positions">Position</p>
-            <p className="location">Location </p>
+            <p onClick={()=>sorter('location')} className="location">Location </p>
         </li>
         <hr></hr>
-        {temparray.map((e : any, i: number) => (
+        {jobarray.map((e : any, i: number) => (
             <Queueitem
                 order={i+1}
                 jobname={e.JobTitle}
@@ -167,12 +174,18 @@ const Queue = (props: Props) => {
         ))}
     </ul>
     
+    let variabledata = <ul>
+        <h5>Metadata: </h5>
+    </ul>
+
+
     return (
         
         <div id="queue">
             {/* <HelloWorld/> */}
             <h2>Queue</h2>
             {variabletag}
+            {variabledata}
             {variablelist}
 
         </div>

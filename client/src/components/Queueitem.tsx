@@ -1,7 +1,8 @@
 import React, {useState} from "react"
 
 interface ListType {
-    Name: string
+    Name: string,
+    Image: string
 }
 
 type Props = {
@@ -19,7 +20,7 @@ type Props = {
 
 
 /* 
-Individual job playlists and their information    
+Individual job and their corresponding information  
 */
 const Queueitem = ( props: Props) => {
     const [toggle, settoggle] = useState(false)
@@ -44,18 +45,22 @@ const Queueitem = ( props: Props) => {
 
 
             <div className="details">
-                <p >Salary minimum: {props.salarymin}</p>
-                <p >Salary maximum: {props.salarymax}</p>
+                <p >Salary range: {props.salarymin} ~ {props.salarymax}</p>
+    
+                <p>Part of these lists:</p>
+
+                <ul className="listoflist">
+                    {props.lists.map((e: ListType, i: number) => {
+                        return <div className="listoflistholder" key={i}>
+                            <img style={{maxWidth : "60px"}} src={e.Image}></img>
+                            <p  style={{margin:0}}className="listoflistname">{e.Name}</p>  
+                        </div>
+                    })}
+                </ul>
                 <a href={props.applylink} target="_blank"
                      rel="noopener noreferrer"
                 >Apply here!</a>
-                <ul>
-                    Part of these lists:
-                    {props.lists.map((e: ListType, i: number) => {
-                        return <p key={i}>{e.Name}</p>  
-                    })}
-                </ul>
-
+                
             </div>
         </li>
     )
