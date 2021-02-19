@@ -16,7 +16,7 @@ class Query(graphene.ObjectType):
     all_jobs = graphene.List(JobType)
     all_lists =  graphene.List(ListType)
     job = graphene.Field(JobType, id=graphene.Int(), Company= graphene.String())
-    listselect = graphene.Field(ListType, Name= graphene.String())
+    listoflist = graphene.Field( graphene.List(ListType), Name = graphene.List(graphene.String))
 
     def resolve_all_jobs(root, info):
         # We can easily optimize query count in the resolve method
@@ -31,11 +31,14 @@ class Query(graphene.ObjectType):
             return Job.objects.get(pk=id)
         return None
 
-    def resolve_listselect(root,info, Name=None):
+    def resolve_listoflist(root,info, Name=None):
         if Name == "" :
             return None
         if Name is not None:
-            return Lists.objects.get(Name=Name)
+            test =[]
+            for namer in Name:
+                test.append(Lists.objects.get(Name= namer))
+            return test
         return None
 
 schema = graphene.Schema(query=Query)

@@ -8,8 +8,8 @@ import "../css/Queue.css"
 import gql from "graphql-tag"
 
 const LIST_SELECT = gql`
-    query Listselect($Name:String!){
-        listselect(Name: $Name){
+    query lister($Name:[String!]!){
+        listoflist(Name: $Name){
             Description
             jobSet{
                 id
@@ -110,29 +110,18 @@ const Queue = (props: Props) => {
 
         } 
 
-        props.list.listoflist.map((name: string, i: number) => {
-            console.log(props.list.listoflist)
-            getjobs({ variables: { Name: name } })
-            return
-        })
-    
-        console.log(data)
 
+        getjobs({ variables: { Name: props.list.listoflist } })
+       
+    
     }, [props.list.listoflist])
 
 
     useEffect(() => {
-        if (data !== null && data !== undefined) {
-            if (data.listselect) {
-                updater(data.listselect.jobSet)
-
-                /* 
-                Effectively "resets" the data queue
-                */
-                getjobs({ variables: { Name: "" } })
-
-            } 
-        } else {
+        if (data) {
+            for (let e of data.listoflist) {
+                console.log(e.jobSet)
+            }
         }
     }, [data,])
 
