@@ -1,12 +1,12 @@
 ## Hello! welcome to my project 
 
 As you have requested, I have configured a react-frontend Django-backend application
-that uses the data you provided to emulate the cardea experience. 
+that uses the data you provided to emulate the Cardea experience. 
 
 ### Requirements fulfilled
 
 1. All of the lists (and any information you choose to include about it) should be shown and selectable. Users should be able to select multiple lists.
-- You can do this by either clicking on the list image or the name
+- You can do this by either clicking on the list image or the name. You can also deselect the lists the same way.
 
 2. When a user selects a list, all the jobs in that list should appear.
 - The list appears in the queue section
