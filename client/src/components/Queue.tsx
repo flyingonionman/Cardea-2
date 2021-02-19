@@ -82,7 +82,12 @@ type JobType = {
 
 
 const Queue = (props: Props) => {
-    let temparray : JobType[] = []
+    let temparray: JobType[] = []
+    /* 
+    sum to calculate average salary
+    */
+    let sum = 0;
+
     const [jobarray, setJobarray] = useState<JobType[]>([ ])
 
     const [getjobs, {data }] = useLazyQuery(LIST_SELECT);
@@ -120,10 +125,16 @@ const Queue = (props: Props) => {
             })
 
             setJobarray(temparray);
+
             temparray = []
         }
     }, [data])
 
+    /* 
+    Sorting function in the works 
+    hint : it doesn't work now
+    
+    */
     const sorter = (sortby: string) => {
         console.log(sortby)
         switch (sortby) {
@@ -131,6 +142,7 @@ const Queue = (props: Props) => {
                 jobarray.sort((a,b)=> (a.Location.toLowerCase() > b.Location.toLowerCase()) ? 1 : -1)
             case 'company':
                 jobarray.sort((a,b)=> (a.Company.toLowerCase() > b.Company.toLowerCase()) ? 1 : -1)
+
             default:
         }
 
@@ -168,14 +180,26 @@ const Queue = (props: Props) => {
     </ul>
     
     let variabletag = <ul className="tagscontainer">
-        <h5 style={{ display: "inline" }}>Tags : </h5>
+        <h5 style={{ display: "inline", }}>Tags : </h5>
         {props.list.listoflist.map((e : string, i: number) => (
             <li className="tags" key={i}>{e}</li>
         ))}
     </ul>
     
-    let variabledata = <ul>
-        <h5>Metadata: </h5>
+    let variabledata = <ul className="metadata">
+        {jobarray.map((e: any, i: number) => {
+            
+            let min = parseInt(e.SalaryMin.replace('$', '').replace(',', ''))
+            let max = parseInt(e.SalaryMax.replace('$', '').replace(',', ''))
+            let avg = (max + min)/2;
+            sum += avg
+            return
+        })}
+
+        <h5>Metadata  </h5>
+        <hr></hr>
+        <h5>Average salary: {sum / jobarray.length | 0}  </h5>
+
     </ul>
 
 
@@ -183,7 +207,7 @@ const Queue = (props: Props) => {
         
         <div id="queue">
             {/* <HelloWorld/> */}
-            <h2>Queue</h2>
+            <h2 color="#011627">Queue</h2>
             {variabletag}
             {variabledata}
             {variablelist}

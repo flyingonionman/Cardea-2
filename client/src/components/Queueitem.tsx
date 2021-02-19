@@ -46,20 +46,24 @@ const Queueitem = ( props: Props) => {
 
             <div className="details">
                 <p >Salary range: {props.salarymin} ~ {props.salarymax}</p>
-    
-                <p>Part of these lists:</p>
+                <a href={props.applylink} target="_blank"
+                     rel="noopener noreferrer"
+                    >Apply here!</a>
 
                 <ul className="listoflist">
+                
+                    
+
+                <p>Part of these lists:</p>
+
                     {props.lists.map((e: ListType, i: number) => {
                         return <div className="listoflistholder" key={i}>
-                            <img style={{maxWidth : "60px"}} src={e.Image}></img>
+                            <img style={{maxWidth : "65px"}} src={e.Image}></img>
                             <p  style={{margin:0}}className="listoflistname">{e.Name}</p>  
                         </div>
                     })}
                 </ul>
-                <a href={props.applylink} target="_blank"
-                     rel="noopener noreferrer"
-                >Apply here!</a>
+        
                 
             </div>
         </li>

@@ -23,7 +23,7 @@
 
 #columns{
     display:flex;
-    transition: max-height .2s;
+    transition: all .2s;
     border-bottom: 1px solid rgba(0, 0, 0, .3);
     padding: 1.32vh 0vw; 
 }
@@ -44,28 +44,34 @@
 
 
 .description{
-    transition: max-height .2s;
+    transition: all .2s ease-in;
     max-height: 40vh;
+
 }
 
 .details{
-    padding:3vh;
+    padding:2vh 0vh;
 }
 
 .details p {
-    margin:1vh;
+    margin:1vh 0 ;
 }
 
 .details a {
-    margin:1vh;
+    margin:1vh 0 ;
+    color: inherit; 
+    text-decoration: none;
 }
 
+.details a:hover{
+    text-decoration: underline;
+}
 #queue .tags{
     display:inline;
     padding:3px;
     text-decoration: underline;
     font-family: Din;
-
+    color:#FF9F1C;
 }
 
 .numberorder{
@@ -95,16 +101,37 @@
 
 .listoflist{
     display: flex;
-    margin:1vh;
-
+    justify-content: space-around;
+    align-items: center;
 }
 
 .listoflistholder{
-    margin-right:1vw;
-    flex:1;
+    margin-right: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.listoflistholder img{
+    border-radius: 50%;
 }
 
 .listoflistname{
     margin:0;
     font-size:.6vw;
+}
+
+.metadata{
+    margin-top:2vh;
+    padding:2vh;
+    background-color: #011627;
+    color:white;
+}
+
+.metadata hr{
+    margin:1vh 0;
+
+    background-color:white;
 }
