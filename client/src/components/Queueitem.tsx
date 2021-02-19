@@ -44,6 +44,10 @@ const Queueitem = ( props: Props) => {
             </div>
 
 
+            {/* 
+                Information one sees when one clicks on one of the job listings
+                
+            */}
             <div className="details">
                 <p >Salary range: {props.salarymin} ~ {props.salarymax}</p>
                 <a href={props.applylink} target="_blank"

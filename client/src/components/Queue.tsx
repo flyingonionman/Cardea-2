@@ -76,11 +76,10 @@ type JobType = {
 }
 
 /* 
-    Reducer for sorting mechanism
- */
+    Queue that contains actual list of jobs
+    passes down information it fetches to Queueitems
 
-
-
+*/
 const Queue = (props: Props) => {
     let temparray: JobType[] = []
     /* 
@@ -92,8 +91,6 @@ const Queue = (props: Props) => {
 
     const [getjobs, {data }] = useLazyQuery(LIST_SELECT);
     
-    const [sort, setsort] =useState<string>("");
-
 
     /* 
     We fetch data from the server whenever reducer gets triggered ( whenever we click any of the lists)

@@ -11,6 +11,9 @@ type Props = {
     Data : any
 }
 
+/* 
+    @TODO: click curator's name and it shows their list
+*/
 export const List = ({Data} : Props) => {
     let variablelist = <ul className="List_container">
         {Data.allLists.map((e: any, i : number)=>
